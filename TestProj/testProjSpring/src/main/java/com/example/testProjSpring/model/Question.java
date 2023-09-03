@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class Question {
     private String question;
     private Integer answer;
+    private String message;
 
 
 }

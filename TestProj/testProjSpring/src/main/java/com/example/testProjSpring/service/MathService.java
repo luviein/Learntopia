@@ -17,10 +17,10 @@ public class MathService {
 
         if (operator == 0) {
             int answer = num1 + num2;
-            return new Question(num1 + " + " + num2 + " =", answer);
+            return new Question(num1 + " + " + num2 + " =", answer, "What is the correct answer?");
         } else {
             int answer = num1 - num2;
-            return new Question(num1 + " - " + num2 + " =", answer);
+            return new Question(num1 + " - " + num2 + " =", answer, "What is the correct answer?");
         }
     }
 }

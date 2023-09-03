@@ -1,0 +1,42 @@
+<!-- <div class="game-container">
+  <h2>Math Quiz Game</h2>
+  <div class="question" *ngIf="showQuestion && question" [@fadeInOut]>
+    <p>{{ question.question }}</p>
+    <form [formGroup]="form" (ngSubmit)="checkAnswer()">
+      <input type="number" formControlName="answer">
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+  <div class="message" *ngIf="question && question.message">
+    <p>Score: {{ score }}</p>
+  </div> -->
+  <!-- <button (click)="getNewQuestion()">Next Question</button> -->
+<!-- </div>
+
+<div class="score">
+  <p>Score : {{score}}</p>
+</div> -->
+
+<div class="game-container">
+  <h2>Math Quiz Game</h2>
+  <div class="question"  [@fadeInOut]>
+    <p>{{ question.question }}</p>
+    <form [formGroup]="form" (ngSubmit)="checkAnswer()">
+      <input type="number" formControlName="answer">
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+  <div class="message" *ngIf="question && question.message">
+    <p>{{ question.message }}</p>
+  </div>
+  <div class="score">
+    <p>Score: {{ score }}</p>
+  </div>
+  <!-- <button (click)="getNewQuestion()">Next Question</button> -->
+</div>
+
+
+
+
+
+
