@@ -7,8 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../modal-window/modal-window.component';
 import { Location } from '@angular/common';
-import { ShepherdService } from 'src/app/Service/shepherd-service.service';
+
 import { steps as defaultSteps, defaultStepOptions} from './data';
+import { ShepherdService } from 'src/app/Service/shepherd-service.service';
 
 @Component({
   selector: 'app-main-game',

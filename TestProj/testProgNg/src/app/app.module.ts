@@ -10,9 +10,8 @@ import { ModalWindowComponent } from './Component/modal-window/modal-window.comp
 import { GameServiceService } from './Service/game-service.service';
 import {MatDialogModule } from '@angular/material/dialog';
 import { HomepageComponent } from './Component/homepage/homepage.component';
-import { HighlightDirective } from './highlight.directive';
-import { IntroJsHtmlComponent } from './Component/shepherd/intro-js-html.component';
 import { ShepherdService } from './Service/shepherd-service.service';
+import { IntroJsHtmlComponent } from './Component/shepherd/intro-js-html.component';
 
 
 const appRoutes : Routes = [
@@ -29,7 +28,6 @@ const appRoutes : Routes = [
     ModalWindowComponent,
     HomepageComponent,
     IntroJsHtmlComponent,
-    HighlightDirective
   ],
   imports: [
     BrowserModule,
