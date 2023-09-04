@@ -10,12 +10,15 @@ import { ModalWindowComponent } from './Component/modal-window/modal-window.comp
 import { GameServiceService } from './Service/game-service.service';
 import {MatDialogModule } from '@angular/material/dialog';
 import { HomepageComponent } from './Component/homepage/homepage.component';
+import { HighlightDirective } from './highlight.directive';
+import { IntroJsHtmlComponent } from './Component/shepherd/intro-js-html.component';
+import { ShepherdService } from './Service/shepherd-service.service';
+
 
 const appRoutes : Routes = [
   {path: "", component:HomepageComponent, title:"Homepage"},
   {path: "math", component:MainGameComponent, title:"Math Game"},
-  // {path:"herolist", component: HeroListComponent},
-  // {path: "herolist/:id", component: HeroComponent},
+  {path: "shepherd", component: IntroJsHtmlComponent},
   // {path: "comments", component: CommentsComponent, title: "Your Comment"}
 ]
 
@@ -24,7 +27,9 @@ const appRoutes : Routes = [
     AppComponent,
     MainGameComponent,
     ModalWindowComponent,
-    HomepageComponent
+    HomepageComponent,
+    IntroJsHtmlComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -32,9 +37,10 @@ const appRoutes : Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {useHash: true}),
-    MatDialogModule
+    MatDialogModule,
+    // TourMatMenuModule.forRoot()
   ],
-  providers: [GameServiceService],
+  providers: [GameServiceService, ShepherdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,42 +1,68 @@
-<!-- <div class="game-container">
-  <h2>Math Quiz Game</h2>
-  <div class="question" *ngIf="showQuestion && question" [@fadeInOut]>
-    <p>{{ question.question }}</p>
-    <form [formGroup]="form" (ngSubmit)="checkAnswer()">
-      <input type="number" formControlName="answer">
-      <button type="submit" [disabled]="!form.valid">Submit</button>
-    </form>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="game-card" [ngClass]="{ 'tutorial-active': isTutorialActive }">
+    <div class="card-header">
+      <h2 class="first-element">Math Quiz Game</h2>
+    </div>
+
+    <div class="card-content">
+      <div class="question" [@swipeIn]="currentQuestionIndex">
+        <p class="second-element">{{ question.question }}</p>
+        <form [formGroup]="form" (ngSubmit)="checkAnswer()">
+          <input type="number" formControlName="answer" class="third-element">
+        </form>
+      </div>
+      <div class="fourth-element">
+
+        <button type="button" (click)="checkAnswer()" [disabled]="!form.valid" class="highlight-submit">Submit</button>
+      </div>
+      <div class="message" *ngIf="question && question.message">
+        <p>{{ question.message }}</p>
+      </div>
+      <div class="fifth-element">
+        <div class="score-container">
+          <div class="score">
+            <p>Score: {{ score }}</p>
+        </div>
+      </div>
+
+
+
+      </div>
+    </div>
   </div>
-  <div class="message" *ngIf="question && question.message">
-    <p>Score: {{ score }}</p>
-  </div> -->
-  <!-- <button (click)="getNewQuestion()">Next Question</button> -->
-<!-- </div>
 
-<div class="score">
-  <p>Score : {{score}}</p>
-</div> -->
+</body>
 
-<div class="game-container">
-  <h2>Math Quiz Game</h2>
-  <div class="question"  [@fadeInOut]>
-    <p>{{ question.question }}</p>
-    <form [formGroup]="form" (ngSubmit)="checkAnswer()">
-      <input type="number" formControlName="answer">
-      <button type="submit" [disabled]="!form.valid">Submit</button>
-    </form>
-  </div>
-  <div class="message" *ngIf="question && question.message">
-    <p>{{ question.message }}</p>
-  </div>
-  <div class="score">
-    <p>Score: {{ score }}</p>
-  </div>
-  <!-- <button (click)="getNewQuestion()">Next Question</button> -->
-</div>
+
+
+</html>
 
 
 
 
 
+ <!-- <div class="page">
+  <div class="container">
+    <h1 class="shepherd-title">angular-shepherd</h1>
 
+    <h4 class="first-element">Guide your users through a tour of your app.</h4>
+
+    <h5 class="shepherd-text">Installation</h5>
+
+    <div class="install-element">
+      Install instructions go here
+    </div>
+
+    <h5>Usage</h5>
+
+    <div class="usage-element">
+      Usage instructions go here
+    </div> -->
