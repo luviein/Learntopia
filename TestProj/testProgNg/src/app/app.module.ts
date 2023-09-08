@@ -11,13 +11,21 @@ import { GameServiceService } from './Service/game-service.service';
 import {MatDialogModule } from '@angular/material/dialog';
 import { HomepageComponent } from './Component/homepage/homepage.component';
 import { ShepherdService } from './Service/shepherd-service.service';
-import { IntroJsHtmlComponent } from './Component/shepherd/intro-js-html.component';
+
+import { LoginComponent } from './Component/login/login.component';
+import { HomeComponent } from './Component/home/home.component';
+
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { UserCardComponent } from './Component/user-card/user-card.component';
 
 
 const appRoutes : Routes = [
-  {path: "", component:HomepageComponent, title:"Homepage"},
-  {path: "math", component:MainGameComponent, title:"Math Game"},
-  {path: "shepherd", component: IntroJsHtmlComponent},
+  {path: "", component:HomeComponent, title:"Homepage"},
+  {path: "modes", component:HomepageComponent, title:"Game Modes"},
+  {path: "math", component:MainGameComponent, title:"Math Game"}
   // {path: "comments", component: CommentsComponent, title: "Your Comment"}
 ]
 
@@ -27,7 +35,9 @@ const appRoutes : Routes = [
     MainGameComponent,
     ModalWindowComponent,
     HomepageComponent,
-    IntroJsHtmlComponent,
+    LoginComponent,
+    HomeComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +46,10 @@ const appRoutes : Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {useHash: true}),
     MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
+
     // TourMatMenuModule.forRoot()
   ],
   providers: [GameServiceService, ShepherdService],

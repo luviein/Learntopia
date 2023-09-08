@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="login-container">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="process()">
+
+      <mat-form-field>
+        <input matInput type="text" formControlName="username" placeholder="Username" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" formControlName="password" placeholder="Password"  required>
+      </mat-form-field>
+      <button class="login-submit" type="submit" mat-raised-button color="primary">Login</button>
+    </form>
+
+    <div id="g_id_onload"
+    data-client_id="687644168715-s11ng3eiapnlgqs8ogk3cp09u0vd0k65.apps.googleusercontent.com"
+    data-context="signin"
+    data-ux_mode="popup"
+
+    data-auto_prompt="false"
+    data-callback="handleCredentialResponse">
+</div>
+
+<!--     data-login_uri="http://localhost:3000/api/login" -->
+
+<div class="g_id_signin"
+    data-type="standard"
+    data-shape="pill"
+    data-theme="outline"
+    data-text="signin_with"
+    data-size="large"
+    data-logo_alignment="left">
+</div>
+  </div>
+</body>
+</html>

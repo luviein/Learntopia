@@ -1,2 +1,20 @@
-<a [routerLink]="['math']" (click)="resetLocalStorageScore()">Math</a> <br>
-<a [routerLink]="['shepherd']" >Math Tutorial</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ng-container *ngIf="userProfile">
+    <div>Welcome {{userProfile.name}}</div>
+    <app-user-card>[userProfile]="userProfile"</app-user-card>
+  </ng-container>
+
+  <button id="signout-button" (click) = "handleSignOut()">Sign Out</button>
+
+  <a [routerLink]="['math']" (click)="resetLocalStorageScore()">Math</a> <br>
+  <a [routerLink]="['shepherd']" >Math Tutorial</a>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to MyApp</title>
+
+</head>
+<body>
+
+  <h1>Learntopia</h1>
+
+  <div class="button-container">
+    <a id="login-link" href="#login-section" class="button">Log in</a>
+    <a href="/signup" class="button">Sign up</a>
+  </div>
+
+  <section id="login-section">
+    <!-- Login section -->
+    <h2>Login</h2>
+    <!-- Login form -->
+    <app-login></app-login>
+  </section>
+
+  <script>
+    const loginLink = document.getElementById('login-link');
+
+    loginLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      const loginSection = document.getElementById('login-section');
+      loginSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

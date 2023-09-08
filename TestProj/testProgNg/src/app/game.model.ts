@@ -4,3 +4,8 @@ export interface QuestionResponse {
   answer : number
   message : string
 }
+
+export interface LoginDetails {
+  username: string
+  password: string
+}
