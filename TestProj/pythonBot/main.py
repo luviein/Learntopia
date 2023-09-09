@@ -13,17 +13,17 @@ async def start_command(update : Update, context : ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Hi there, thanks for chatting with me! Learntopia Bot at your service!")
 
 async def help_command(update : Update, context : ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Feel free to chat with @luviein if LearntopiaBot can't help you!")
+    await update.message.reply_text("Type /list to view list of commands. Feel free to chat with @luviein if LearntopiaBot can't help you!")
 
 async def list_command(update : Update, context : ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("List of Commands: -updates (get latest updates on Learntopia), -math(play a math game!)")
+    await update.message.reply_text("List of Commands: /updates (get latest updates on Learntopia), /math(play a math game!) /stop(stop the math game)")
 
 
 # Function to generate a random math question
 def generate_math_question():
     num1 = random.randint(1, 10)  # Generate a random number between 1 and 10
     num2 = random.randint(1, 10)  # Generate another random number between 1 and 10
-    operator = random.choice(["+", "-", "*", "/"])  # Choose a random operator
+    operator = random.choice(["+", "-", "*"])  # Choose a random operator
 
     if operator == "/":
         answer = num1  # Set the answer equal to num1 to avoid decimals
@@ -80,7 +80,7 @@ async def check_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             user_answer = int(user_answer)  # Convert user's answer to an integer
             if user_answer == correct_answer:
-                response = "Correct! 🎉"
+                response = "Correct! 🎉 Press Play Again or /stop to end the game."
                 # Add a "Play Again" button
                 keyboard = [[InlineKeyboardButton("Play Again", callback_data="play_again")]]
                 reply_markup = InlineKeyboardMarkup(keyboard)
@@ -132,7 +132,7 @@ def handle_response(text : str) -> str:
     if "updates" in processed:
         return "Learntopia is launching soon on learntopia.pro~"
     
-    return "I do not understand what you wrote"
+    return "Please remember to tag @LearntopiaBot followed by a command eg: (@LearntopiaBot updates), if not I can't respond! :("
 
 async def handle_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
   
