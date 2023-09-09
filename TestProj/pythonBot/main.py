@@ -13,7 +13,7 @@ async def start_command(update : Update, context : ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Hi there, thanks for chatting with me! Learntopia Bot at your service!")
 
 async def help_command(update : Update, context : ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Type /list to view list of commands. Feel free to chat with @luviein if LearntopiaBot can't help you!")
+    await update.message.reply_text("Tag @LearntopiaBot with Commands (hello, updates, how are you) Example: @LearntopiaBot hello. Feel free to chat with @luviein if LearntopiaBot can't help you!")
 
 async def list_command(update : Update, context : ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("List of Commands: /updates (get latest updates on Learntopia), /math(play a math game!) /stop(stop the math game)")
