@@ -6,20 +6,20 @@
 
 </head>
 <body>
+  <div class="content">
+    <section id="homepage">
+      <div class="button-container">
+        <a id="login-link" href="#login-section" class="button">Log in</a> &nbsp;
+        <a href="/signup" class="button">Sign up</a>
+      </div>
+    </section>
 
-  <h1>Learntopia</h1>
-
-  <div class="button-container">
-    <a id="login-link" href="#login-section" class="button">Log in</a>
-    <a href="/signup" class="button">Sign up</a>
+    <section id="login-section">
+      <app-login></app-login>
+    </section>
   </div>
 
-  <section id="login-section">
-    <!-- Login section -->
-    <h2>Login</h2>
-    <!-- Login form -->
-    <app-login></app-login>
-  </section>
+
 
   <script>
     const loginLink = document.getElementById('login-link');

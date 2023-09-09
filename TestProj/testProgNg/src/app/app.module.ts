@@ -15,7 +15,7 @@ import { ShepherdService } from './Service/shepherd-service.service';
 import { LoginComponent } from './Component/login/login.component';
 import { HomeComponent } from './Component/home/home.component';
 
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -26,7 +26,7 @@ const appRoutes : Routes = [
   {path: "", component:HomeComponent, title:"Homepage"},
   {path: "modes", component:HomepageComponent, title:"Game Modes"},
   {path: "math", component:MainGameComponent, title:"Math Game"}
-  // {path: "comments", component: CommentsComponent, title: "Your Comment"}
+
 ]
 
 @NgModule({

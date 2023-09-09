@@ -1,40 +1,89 @@
-body {
-  background-color: #f1f1f1;
-  background-image: url("src/images/landing-page.jpg");
-  font-family: Arial, sans-serif;
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  width: 100%;
+  height: 100vh; */
+
 }
 
-.landing-image {
-  width: 500px;
-  height: auto;
+
+div.content {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: red;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
+
+#homepage {
+  width: 100%;
+  height: 100vh;
+  background-image: url("src/images/landing-page.png");
+  /* background-color: red; */
+  background-size: cover; /* Set the background size to "auto" */
+  text-align: center;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+
+#login-section {
+  width: 100%;
+  height: 100vh;
+  padding-top: 400px;
+  background-image: url("src/images/login-bg.png") ;
+  /* background-color: green; */
+  text-align: center;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+
+
 
 .button-container {
   margin-top: 20px;
+  padding-top: 700px;
 }
 
 .button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
+  padding: 15px 30px; /* Increase padding to make the button larger */
+  font-size: 20px; /* Increase font size to make the text larger */
+  background-color: #5d39ff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #4d2fd1;
 }
-
+/*
 h1 {
   font-family: "Comic Sans MS", cursive;
   font-size: 48px;
@@ -43,23 +92,6 @@ h1 {
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: rainbow 10s infinite;
-}
+} */
 
-@keyframes rainbow {
-  0%   { color: #ff6b6b; }
-  14%  { color: #ff793f; }
-  28%  { color: #fab1a0; }
-  42%  { color: #74b9ff; }
-  57%  { color: #a29bfe; }
-  71%  { color: #6c5ce7; }
-  85%  { color: #a29bfe; }
-  100% { color: #74b9ff; }
-}
 
-#login-section {
-  height: 100vh;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-}

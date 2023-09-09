@@ -96,6 +96,7 @@ async def check_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         return  # Exit the function here to prevent further replies
     else:
+        await handle_messages(update, context)
         # await update.message.reply_text("No active math question. Use /math to get a new question.")
         return
 # Callback handler for the "Play Again" button
@@ -121,7 +122,7 @@ async def play_again_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
 
 def handle_response(text : str) -> str:
     processed: str = text.lower()
-
+    print(processed)
     if "hello" in processed:
         return "Hey there!"
 
@@ -137,6 +138,7 @@ async def handle_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
   
             
     # inform us if it is a group chat or private chat
+    response: str = ""
     message_type: str = update.message.chat.type
     text: str = update.message.text
 
@@ -148,34 +150,29 @@ async def handle_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if BOT_USERNAME in text:
                 # only want to process text not bot username
                 new_text: str = text.replace(BOT_USERNAME, '').strip()
-                print(new_text)
                 response: str = handle_response(new_text)  # Corrected variable name
                 print(new_text)
-            
                 # bot won't respond unless the username is called
             else:
-                return 
+                pass 
         else:
             # for private chats
             response: str = handle_response(text)
-
-    if message_type == 'group':
+    elif message_type == 'group':
         if BOT_USERNAME in text:
             # only want to process text not bot username
             new_text: str = text.replace(BOT_USERNAME, '').strip()
-            print(new_text)
             response: str = handle_response(new_text)  # Corrected variable name
-            print(new_text)
-        
             # bot won't respond unless the username is called
         else:
-            return 
+            pass 
     else:
         # for private chats
         response: str = handle_response(text)
 
+    if len(response) <= 0:
+        return
     print('Bot:', response)
-
     await update.message.reply_text(response)
 
 # async def handle_messages(update : Update , context: ContextTypes.DEFAULT_TYPE):
@@ -246,7 +243,7 @@ if __name__ == '__main__':
 
     app.add_handler(CommandHandler('stop', stop_command))
     # Messages
-    app.add_handler(MessageHandler(filters.TEXT, handle_messages))
+    # app.add_handler(MessageHandler(filters.Regex("^[a-zA-Z0-9]+$"), handle_messages))
 
     # Errprs
     app.add_error_handler(error)
