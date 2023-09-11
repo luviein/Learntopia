@@ -1,13 +1,21 @@
 package com.example.testProjSpring.service;
 
+import java.util.Optional;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.testProjSpring.model.Question;
+import com.example.testProjSpring.model.Score;
+import com.example.testProjSpring.repository.ScoreRepo;
+import com.example.testProjSpring.security.auth.RegisterRequest;
 
 @Service
 public class MathService {
+
+    @Autowired
+    private ScoreRepo scoreRepo;
     private final Random random = new Random();
 
     public Question generateQuestion() {
@@ -23,4 +31,17 @@ public class MathService {
             return new Question(num1 + " - " + num2 + " =", answer, "What is the correct answer?");
         }
     }
+
+    public void save(RegisterRequest request) {
+        this.scoreRepo.save(request);
+    }
+
+    // public void update(String username, int newMathScore) {
+    //     this.scoreRepo.update(username, newMathScore);
+    // }
+
+    public Score get(String username){
+        return this.scoreRepo.get(username);
+    }
+
 }
