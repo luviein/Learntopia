@@ -37,7 +37,7 @@ public class ScoreRepo {
         );
 
         Update updateOps = new Update()
-            .set("mathScore", mathScore);
+            .inc("mathScore", mathScore);
 
         UpdateResult updateResult = template.updateFirst(query, updateOps, Document.class, "mathScores");
         return (updateResult.getModifiedCount() > 0 ? true : false);

@@ -1,9 +1,11 @@
-<div class="user-card">
+<div class="user-card" (click)="openUserProfileDialog()">
   <div class="profile-photo">
-    <img [src]="userProfile.picture" alt="Profile Photo">
+    <img [src]="userProfile.picture || image" alt="Profile Photo">
   </div>
-  <div class="user-photo">
-    <h2>{{userProfile.given_name}} {{userProfile.family_name}}</h2>
-    <p>{{userProfile.email}}</p>
+  <div class="user-info">
+    <h2>Welcome back, {{ userProfile.given_name ? userProfile.given_name : userProfile.sub }}! </h2>
+    <!-- <p>{{userProfile.email}}</p> -->
   </div>
+
+
 </div>

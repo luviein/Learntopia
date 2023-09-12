@@ -1,0 +1,37 @@
+
+
+<div class="register-container">
+  <form class="register-form" [formGroup]="form" (ngSubmit)="process()">
+
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput type="text" formControlName="username" placeholder="Username" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput type="email" formControlName="email" placeholder="Email" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput type="password" formControlName="passw" placeholder="Password"  required>
+          </mat-form-field>
+
+        </td>
+      </tr>
+    </table>
+
+
+
+        <button class="login-submit" type="submit" mat-raised-button color="primary">Register</button>
+  </form>
+
+</div>
+

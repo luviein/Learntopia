@@ -60,6 +60,17 @@ div.content {
   position: relative;
 }
 
+#register-section {
+  width: 100%;
+  height: 100vh;
+  padding-top: 400px;
+  background-image: url("src/images/register-bg.png") ;
+  /* background-color: green; */
+  text-align: center;
+  scroll-snap-align: start;
+  position: relative;
+}
+
 
 
 
@@ -83,15 +94,36 @@ div.content {
 .button:hover {
   background-color: #4d2fd1;
 }
-/*
-h1 {
-  font-family: "Comic Sans MS", cursive;
-  font-size: 48px;
-  font-weight: 900;
-  color: #ff6b6b;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  animation: rainbow 10s infinite;
-} */
 
+/* Style for the back-to-top button */
+#back-to-top {
+  /* display: none; */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #5d39ff; /* Change this to your desired button color */
+  color: #fff; /* Text color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+#back-to-top > a {
+  text-decoration: none;
+  color:#ffca7b
+}
+
+/* Show the button when the user scrolls down 300px */
+@media (min-width: 768px) {
+  body.scroll-show #back-to-top {
+    display: block;
+  }
+}
+
+/* Hover effect for the button */
+#back-to-top:hover {
+  background-color: #4d2fd1; /* Change this to your desired hover color */
+}
 

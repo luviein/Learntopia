@@ -3,6 +3,7 @@ package com.example.testProjSpring.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.testProjSpring.model.Question;
 import com.example.testProjSpring.model.Score;
 import com.example.testProjSpring.service.MathService;
+
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -27,15 +31,18 @@ public class MathController {
         return this.svc.generateQuestion();
     }
 
-    @PutMapping(path = "/update-score", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateMathScore(@RequestBody Score request) {
-        try{
-           if(this.svc.updateScore(request.getUsername(), request.getMathScore())){
-            System.out.println("success");
-           }
-        }catch(Exception e) {
-            e.printStackTrace();
+    @PutMapping(path = "/update-score", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> updateMathScore(@RequestBody Score request) {
+
+        if(this.svc.updateScore(request.getUsername(), request.getMathScore())){
+            JsonObject jsonResponse = Json.createObjectBuilder()
+            .add("status", "ok")
+            .build();
+            return ResponseEntity.ok().body(jsonResponse.toString());
         }
+
+        return ResponseEntity.badRequest().body("Bad Request");
+
 
     }
 

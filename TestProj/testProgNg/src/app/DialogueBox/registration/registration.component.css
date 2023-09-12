@@ -1,0 +1,24 @@
+
+/* Center-align the dialog content */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Adjust the width and styling of the dialog */
+.mat-dialog-container {
+  max-width: 80%;
+}
+
+/* Style the dialog title */
+.mat-dialog-title {
+  font-size: 24px;
+}
+
+/* Style the dialog content */
+.mat-dialog-content {
+  font-size: 18px;
+}

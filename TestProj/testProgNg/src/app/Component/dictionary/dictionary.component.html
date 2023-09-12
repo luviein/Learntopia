@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body id="homepage">
+  <div class="search">
+      <h2>Search a word!</h2><br>
+    <div class="search-comp">
+      <form [formGroup]="form" (ngSubmit)="process()">
+        <input type="text" formControlName="query" ><br>
+        <button mat-button (ngSubmit)="process()">Search</button>
+        <a mat-button [routerLink]="['/modes']" >Go Back</a>
+      </form>
+    </div>
+
+    <div class="search-details">
+      <div *ngIf="queryList.length > 0; else noItems">
+        <div *ngFor="let query of queryList; let i = index">
+          <span>{{i+1}}. </span>
+          <span id="tag">{{query}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+
+  <ng-template #noItems>
+
+    <h4>Type something in the search bar!</h4>
+  </ng-template>
+
+</body>
+</html>

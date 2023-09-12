@@ -10,7 +10,7 @@
 
   /* Add these properties to center the card */
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -70,4 +70,17 @@
   /* Add other styling as needed */
 }
 
+#homepage {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("src/assets/background-main.png");
+  /* background-color: red; */
+  background-size: cover; /* Set the background size to "auto" */
 
+}
+
+.button{
+  padding-top: 10px;
+}

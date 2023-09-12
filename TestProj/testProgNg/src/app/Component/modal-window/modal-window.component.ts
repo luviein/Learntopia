@@ -23,7 +23,7 @@ export class ModalWindowComponent {
 
   resetGame() {
     this.dialogRef.close();
-    this.router.navigate(['/']);
+    this.router.navigate(['/modes']);
   }
 
 }

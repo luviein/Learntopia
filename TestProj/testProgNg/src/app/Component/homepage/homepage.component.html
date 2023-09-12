@@ -5,16 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-  <ng-container *ngIf="userProfile">
-    <div>Welcome {{userProfile.name}}</div>
-    <app-user-card>[userProfile]="userProfile"</app-user-card>
-  </ng-container>
+<body id="homepage">
+  <div class="component">
 
-  <button id="signout-button" (click) = "handleSignOut()">Sign Out</button>
+    <div class="user-card">
+      <ng-container *ngIf="userProfile">
+        <!-- <div>Welcome Back, {{ userProfile.name ? userProfile.name : userProfile.sub }}!</div> -->
+        <app-user-card>[userProfile]="userProfile"</app-user-card>
+      </ng-container>
+    </div>
+    <div class="sign-out">
+      <a mat-button href="https://t.me/+-QvUTnGhqqYzMGY1">Telegram Group</a>
+      <button mat-button id="signout-button" (click) = "handleSignOut()">Sign Out</button>
+    </div>
+  </div>
+    <div class="game-comp">
+      <div class="leaderboard">
+        <h2><strong>Math Leaderboard</strong></h2>
+        <div class="leaderboard-details">
+          <div *ngIf="highScoreList.length > 0; else noItems">
+            <div *ngFor="let score of highScoreList; let i = index">
+              <span>{{i+1}}. </span>
+              <span id="tag">{{score.username}}:  {{score.mathScore}}</span>
+            </div>
+        </div>
+       
+  
+      </div>
+  
+      </div>
+  
+      <div class="math-game">
+        <a mat-button class = "math-button"[routerLink]="['math']" (click)="resetLocalStorageScore()" >Math</a> <br><br>
+        <a mat-button class = "math-button"[routerLink]="['dict']" (click)="resetLocalStorageScore()" >Review Words</a> <br>
+      </div>
+  
+  
+    </div>
+    
+    <ng-template #noItems>
 
-  <a [routerLink]="['math']" (click)="resetLocalStorageScore()">Math</a> <br>
-  <a [routerLink]="['shepherd']" >Math Tutorial</a>
+      <h4>Generating Leaderboard</h4>
+    </ng-template>
+
+
 
 </body>
 </html>

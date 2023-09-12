@@ -1,0 +1,75 @@
+/* CSS to format the profile picture and center-align text */
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+
+}
+
+.profile-photo {
+  margin-bottom: 30px; /* Adds some space between image and text */
+
+}
+
+.profile-picture {
+  max-width: 200px; /* Adjust the size as needed */
+  max-height: 200px; /* Adjust the size as needed */
+  border-radius: 50%; /* Makes the image round */
+}
+
+.profile-table {
+  text-align: left; /* Center-align the table content */
+  width: 100%;
+
+}
+
+td{
+  padding: 10px
+}
+
+li{
+  display: inline-block;
+  margin: 0 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.trophy-list li::after {
+  content: attr(title);
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.trophy-list {
+  padding-top: 10px;
+}
+
+.trophy-list li:hover::after {
+  display: block;
+}
+
+
+.trophy {
+  padding-top: 15px;
+}
+
+.close-button{
+  padding-top: 20px;
+}

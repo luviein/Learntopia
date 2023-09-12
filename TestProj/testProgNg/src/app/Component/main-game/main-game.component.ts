@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { GameServiceService } from 'src/app/Service/game-service.service';
-import { QuestionResponse } from 'src/app/game.model';
+import { HighScores, QuestionResponse } from 'src/app/game.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from '../modal-window/modal-window.component';
@@ -29,13 +29,17 @@ export class MainGameComponent implements OnInit {
   question!: QuestionResponse
   form!: FormGroup
   score = 0
+  finalScore: number = 0
+  answerCount = 0
   currentQuestionIndex = 0
   isTutorialActive = true;
+  usernameFromJwt!: string
+  jwtString = localStorage.getItem("jwt");
 
   constructor(private svc: GameServiceService, private fb: FormBuilder, private dialog: MatDialog, private location: Location, public shepherdSvc : ShepherdService){}
 
   ngOnInit(): void {
-    this.location.replaceState('/');
+    this.location.replaceState('/modes');
     this.form = this.fb.group({
       answer: this.fb.control<number>( 0 ,[Validators.required])
     })
@@ -76,8 +80,20 @@ export class MainGameComponent implements OnInit {
       console.log("received >>>>>", this.question)
       this.form.reset()
 
-      if (this.score >= 10) {
-        this.openExperienceModal(this.score * 10);
+      if (this.answerCount === 5) {
+        console.log("score value >>>>", this.score)
+        this.finalScore = this.score * 10
+        this.openExperienceModal(this.finalScore);
+        const jwtParts = this.jwtString.split('.');
+        const payload = JSON.parse(atob(jwtParts[1]))
+        this.usernameFromJwt = payload.sub
+
+        const userData = {
+          username: this.usernameFromJwt,
+          mathScore: this.finalScore
+        }
+        console.log("userdata >>>>", userData)
+        this.svc.updateScore(userData).then(data=>{console.log(data)})
         return; // Stop the game when the score reaches 10
       }
 
@@ -104,12 +120,17 @@ export class MainGameComponent implements OnInit {
       const submittedAnswer = this.form.get('answer')?.value;
       if (submittedAnswer === this.question.answer) {
         this.question.message = 'Correct!';
+        this.answerCount++
         this.score++
         localStorage.setItem('score', this.score.toString()); // Store the updated score in localStorage
         this.getNewQuestion()
         this.swipeInNextQuestion()
       } else {
-        this.question.message = 'Incorrect. Try again.';
+        this.question.message = 'Incorrect.';
+        this.answerCount++
+  
+        this.getNewQuestion()
+        this.swipeInNextQuestion()
       }
     } else {
       this.question.message = 'Please enter a valid answer.';

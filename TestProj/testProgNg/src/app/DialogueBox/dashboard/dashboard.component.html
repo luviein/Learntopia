@@ -1,0 +1,31 @@
+<h1 mat-dialog-title style="text-align: center;">User Profile</h1>
+<div mat-dialog-content class="profile-content">
+  <div class="profile-photo">
+    <img [src]="data.userProfile.picture || data.image" alt="Profile Photo" class="profile-picture">
+  </div>
+  <table class="profile-table">
+    <tr>
+      <td>Username:</td>
+      <td>{{ data.userProfile.given_name ? data.userProfile.given_name : data.userProfile.sub }}</td>
+    </tr>
+    <tr>
+      <td>Math High Score:</td>
+      <td>{{ data.mathScore}}</td>
+    </tr>
+  </table>
+  <div class="trophy">
+    <strong>Trophy Case</strong>
+    <ul class="trophy-list">
+
+      <li><img src="assets/goldtrophy.png" alt="Jul23 Math" title="Jul23 Math"></li>
+      <li><img src="assets/silvertrophy.png" alt="Aug23 Math" title="Aug23 Math"></li>
+
+      
+    </ul>
+  </div>
+
+  <div mat-dialog-actions class="close-button">
+    <button mat-button [mat-dialog-close]="'Close'">Close</button>
+  </div>
+  
+</div>

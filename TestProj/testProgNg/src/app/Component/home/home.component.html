@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to MyApp</title>
 
 </head>
@@ -9,26 +10,23 @@
   <div class="content">
     <section id="homepage">
       <div class="button-container">
-        <a id="login-link" href="#login-section" class="button">Log in</a> &nbsp;
-        <a href="/signup" class="button">Sign up</a>
+        <a href="#login-section" class="button">Log in</a> &nbsp;
+        <a href="#register-section" class="button">Sign up</a>
       </div>
     </section>
 
     <section id="login-section">
       <app-login></app-login>
     </section>
+    <section id="register-section">
+      <app-register></app-register>
+    </section>
+  </div>
+
+  <div id="back-to-top" class="button">
+    <a href="#homepage">Back to Top</a>
   </div>
 
 
-
-  <script>
-    const loginLink = document.getElementById('login-link');
-
-    loginLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      const loginSection = document.getElementById('login-section');
-      loginSection.scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
