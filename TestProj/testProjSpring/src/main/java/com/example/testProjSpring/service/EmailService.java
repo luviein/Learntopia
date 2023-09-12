@@ -2,6 +2,7 @@ package com.example.testProjSpring.service;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.sendgrid.*;
@@ -12,7 +13,10 @@ import com.sendgrid.helpers.mail.objects.Email;
 @Service
 public class EmailService {
 
-    private final String API_KEY= "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";
+    @Value("${sendgrid.api.key}")
+    private String sendGridAPI;
+
+    private final String API_KEY= sendGridAPI;
     
     public void sendEmail(String email) throws IOException {
         Email from = new Email("learntopia.hello@gmail.com");

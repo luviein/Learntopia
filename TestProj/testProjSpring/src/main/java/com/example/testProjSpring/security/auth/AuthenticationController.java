@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.testProjSpring.repository.ScoreRepo;
+import com.example.testProjSpring.service.MathService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,14 +20,20 @@ public class AuthenticationController {
     private final AuthenticationService service;
 
     @Autowired
-    private ScoreRepo score;
+    private MathService svc;
     
     @PostMapping(path = "/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
         // System.out.println("request >>>>>>" + request);
-
-        this.score.save(request);
-        System.out.println("saving to redis...");
+        try{
+            System.out.println("saving to mongo...");
+            this.svc.postInitialScore(request);
+            System.out.println("saving successw");
+        }catch(Exception e) {
+            System.out.println("error: " + e);
+        }
+        
+        
 
         return ResponseEntity.ok(service.register(request));
     }
