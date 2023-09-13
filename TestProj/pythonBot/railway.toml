@@ -3,8 +3,6 @@ name = "telegram-bot"
 description = "Telegram Bot on Railway"
 
 [env]
-  TELEGRAM_BOT_TOKEN = "6690495865:AAG8GZOuyMaYBqyVF4QAP_GBkugEi0N4Sfg"
-  BOT_USERNAME = "@LearntopiaBot"
 
 [services]
   [services.default]
