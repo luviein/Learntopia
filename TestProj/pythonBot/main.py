@@ -1,10 +1,11 @@
 import random
+import os
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
 
-TOKEN= "6690495865:AAG8GZOuyMaYBqyVF4QAP_GBkugEi0N4Sfg"
+TOKEN= os.environ.get("TELEGRAM_BOT_TOKEN")
 
-BOT_USERNAME = "@LearntopiaBot"
+BOT_USERNAME = os.environ.get("BOT_USERNAME")
 
 
 # Commands
@@ -174,49 +175,6 @@ async def handle_messages(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     print('Bot:', response)
     await update.message.reply_text(response)
-
-# async def handle_messages(update : Update , context: ContextTypes.DEFAULT_TYPE):
-
-#     if "math_answer" not in context.user_data and "/math" not in update.message.text:
-#         if message_type == 'group':
-#             if BOT_USERNAME in text:
-#                 # only want to process text not bot username
-#                 new_text: str = text.replace(BOT_USERNAME, '').strip()
-#                 print(new_text)
-#                 response: str = handle_response(new_text)  # Corrected variable name
-#                 print(new_text)
-            
-#                 # bot wont reponse unless username is called
-#             else:
-#                 return 
-#         else:
-#             # for private chats
-#             response: str = handle_response(text)
-#     # inform us if is a group chat or private chat
-#     message_type: str = update.message.chat.type
-#     text: str = update.message.text
-
-#     # gets the user id of the person sending the chat in private/group chat
-#     print(f'User ({update.message.chat.id}) in {message_type}: "{text}"')
-
-#     if message_type == 'group':
-#         if BOT_USERNAME in text:
-#             # only want to process text not bot username
-#             new_text: str = text.replace(BOT_USERNAME, '').strip()
-#             print(new_text)
-#             response: str = handle_response(new_text)  # Corrected variable name
-#             print(new_text)
-        
-#             # bot wont reponse unless username is called
-#         else:
-#             return 
-#     else:
-#         # for private chats
-#         response: str = handle_response(text)
-
-#     print('Bot:', response)
-
-#     await update.message.reply_text(response)
 
 
 async def error(update : Update , context: ContextTypes.DEFAULT_TYPE):
