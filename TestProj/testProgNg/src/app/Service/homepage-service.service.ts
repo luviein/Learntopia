@@ -18,7 +18,6 @@ export class HomepageService {
   sendEmail(register: RegisterDetails) {
 
     const jwtToken = localStorage.getItem('jwt');
-    console.log("retrieved jwt", jwtToken)
     // Create headers with the JWT token
     const httpOptions = {
       headers: new HttpHeaders({
@@ -28,7 +27,6 @@ export class HomepageService {
 
 
     // Make the HTTP GET request with the headers
-    console.log(register)
     return this.http.post('/api/send', register, httpOptions);
   }
 

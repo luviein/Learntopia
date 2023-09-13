@@ -44,7 +44,6 @@ export class HomepageComponent implements OnInit {
 
      })
 
-    console.log(this.highScoreList)
 
   }
 
@@ -56,8 +55,5 @@ export class HomepageComponent implements OnInit {
     });
   }
 
-  addHighScore(score : any) {
 
-
-  }
 }

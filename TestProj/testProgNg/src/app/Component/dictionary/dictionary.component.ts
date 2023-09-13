@@ -20,17 +20,15 @@ export class DictionaryComponent implements OnInit {
       query: this.fb.control<string>( "" ,[Validators.required])
     })
   }
- 
+
   async process() {
     this.query = this.form.value as DictionaryQuery
-    // console.log(this.query.query)
-    // this.parsedQuery = JSON.parse(this.query);
-    // console.log(this.parsedQuery)
+
     const result = await this.svc.getDefinition(this.query.query)
     this.queryList = result.map((jsonString: any) => {
       return JSON.parse(JSON.stringify(jsonString)) as DictionaryQuery;
 
     })
-    console.log("query list: ", this.queryList)
+
   }
 }

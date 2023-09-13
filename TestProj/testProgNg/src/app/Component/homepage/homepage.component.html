@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Document</title>
 </head>
 <body id="homepage">
@@ -29,20 +30,20 @@
               <span id="tag">{{score.username}}:  {{score.mathScore}}</span>
             </div>
         </div>
-       
-  
+
+
       </div>
-  
+
       </div>
-  
+
       <div class="math-game">
         <a mat-button class = "math-button"[routerLink]="['math']" (click)="resetLocalStorageScore()" >Math</a> <br><br>
         <a mat-button class = "math-button"[routerLink]="['dict']" (click)="resetLocalStorageScore()" >Review Words</a> <br>
       </div>
-  
-  
+
+
     </div>
-    
+
     <ng-template #noItems>
 
       <h4>Generating Leaderboard</h4>

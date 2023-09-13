@@ -1,5 +1,5 @@
 import { AuthGuard } from './guards';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { HomepageService } from './Service/homepage-service.service';
 import { RegistrationComponent } from './DialogueBox/registration/registration.component';
 import { DashboardComponent } from './DialogueBox/dashboard/dashboard.component';
 import { DictionaryComponent } from './Component/dictionary/dictionary.component';
+
 
 
 
@@ -61,7 +62,8 @@ const appRoutes : Routes = [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+
 
     // TourMatMenuModule.forRoot()
   ],

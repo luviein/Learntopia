@@ -19,7 +19,6 @@ div.content {
   height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
-  background-color: red;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;

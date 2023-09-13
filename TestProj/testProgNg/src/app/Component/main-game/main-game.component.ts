@@ -43,8 +43,7 @@ export class MainGameComponent implements OnInit {
     this.form = this.fb.group({
       answer: this.fb.control<number>( 0 ,[Validators.required])
     })
-    // if (this.tutorialSvc.isTutorialActive) {
-    //   const highlightedButtons = this.tutorialSvc.getHighlightedButtons();}
+
 
      // Retrieve the score from localStorage or initialize it to 0
     const storedScore = localStorage.getItem('score')
@@ -60,9 +59,8 @@ export class MainGameComponent implements OnInit {
     }
 
 
-    // this.showQuestion = true
-    // this.getNewQuestion()
-    console.log("model >>>>>>", this.question)
+
+
   }
 
   ngAfterViewInit() {
@@ -77,11 +75,9 @@ export class MainGameComponent implements OnInit {
     try {
       this.question = await this.svc.getQuestion() as QuestionResponse
       localStorage.setItem('question', JSON.stringify(this.question));
-      console.log("received >>>>>", this.question)
       this.form.reset()
 
       if (this.answerCount === 5) {
-        console.log("score value >>>>", this.score)
         this.finalScore = this.score * 10
         this.openExperienceModal(this.finalScore);
         const jwtParts = this.jwtString.split('.');
@@ -111,7 +107,6 @@ export class MainGameComponent implements OnInit {
   swipeInNextQuestion(): void {
     // Increment the question index to trigger the animation
     this.currentQuestionIndex++;
-    console.log(this.currentQuestionIndex)
   }
 
 
@@ -128,7 +123,7 @@ export class MainGameComponent implements OnInit {
       } else {
         this.question.message = 'Incorrect.';
         this.answerCount++
-  
+
         this.getNewQuestion()
         this.swipeInNextQuestion()
       }

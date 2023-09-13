@@ -32,12 +32,10 @@ export class RegisterComponent {
     if (this.form.valid) {
       // Process and handle login form submission
       this.register = this.form.value;
-      console.log(this.register);
       this.sub$ = this.registerSvc.registerJwt(this.register).subscribe(data=>{
         localStorage.setItem("jwt", data.token)
       })
       this.emailSub$ = this.registerSvc.sendEmail(this.register).subscribe(data=>{
-        this.registerSvc.sendEmail(this.register).subscribe(data=>{console.log(data)})
         console.log(data)
       })
       this.openSuccessDialog();

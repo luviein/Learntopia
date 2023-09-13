@@ -21,12 +21,10 @@ export class UserCardComponent implements OnInit {
   ngOnInit(): void {
     if (this.jwtString) {
     this.image = "assets/profilepic.png"
-    // console.log(localStorage.getItem("jwt"))
     try {
       const jwtParts = this.jwtString.split('.')
       if (jwtParts.length === 3) {
         this.userProfile = JSON.parse(atob(jwtParts[1]))
-        console.log("Decoded JWT Payload:", this.userProfile)
 
       }
     } catch (error) {
