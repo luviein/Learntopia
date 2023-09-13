@@ -28,11 +28,13 @@ public class SecurityConfig {
             .csrf().disable()
             .authorizeHttpRequests()
             // authorise all methods in this request mapping
-            .requestMatchers("/api/**")
-            // allow all in the request matchers
-                .permitAll()
-            // .requestMatchers("/api/v1/auth/**")
+            // .requestMatchers("https://energetic-donkey-production.up.railway.app/**")
+            // // allow all in the request matchers
             //     .permitAll()
+            .requestMatchers("/api/**")
+                .permitAll()
+            .requestMatchers("/**")
+                .permitAll()
             // .requestMatchers("/api/send")
             // // allow all in the request matchers
             //     .permitAll()
@@ -44,7 +46,7 @@ public class SecurityConfig {
             //     .permitAll()
             // any other request not in request matcher should be authenticated
             .anyRequest()
-                .authenticated()
+                .permitAll()
             // session should not be a state, as each request should be authenticated
             .and()
             .sessionManagement()
