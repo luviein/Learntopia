@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,11 @@ import io.jsonwebtoken.security.Keys;
 public class JwtService {
 
     // JWT VALIDATION SERVICE
+    @Value("${jwt.secret.key}")
+    private String secretKey;
 
-    private static final String SECRET_KEY = "dCh8vY1+h5igeWx5HZj16AYLvufWjQpWYi8F/Ovt3Cz41RV0suYvfZsTb+wVQvFL";
+    private  final String SECRET_KEY = secretKey;
+    
     
     public String extractUsername (String token) {
         // username typically in the subject
