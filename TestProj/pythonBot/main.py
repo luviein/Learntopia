@@ -130,7 +130,7 @@ def handle_response(text : str) -> str:
         return "I am good"
     
     if "updates" in processed:
-        return "Learntopia is launching soon on learntopia.pro~"
+        return "Learntopia has launched on learntopia.pro! See you there!"
     
     return "Please remember to tag @LearntopiaBot followed by a command eg: (@LearntopiaBot updates), if not I can't respond! :("
 
