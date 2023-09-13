@@ -23,19 +23,19 @@ export class UserCardComponent implements OnInit {
     this.image = "assets/profilepic.png"
     // console.log(localStorage.getItem("jwt"))
     try {
-      const jwtParts = this.jwtString.split('.');
+      const jwtParts = this.jwtString.split('.')
       if (jwtParts.length === 3) {
-        this.userProfile = JSON.parse(atob(jwtParts[1]));
-        console.log("Decoded JWT Payload:", this.userProfile);
+        this.userProfile = JSON.parse(atob(jwtParts[1]))
+        console.log("Decoded JWT Payload:", this.userProfile)
 
       }
     } catch (error) {
-      console.error("Error parsing JWT Payload:", error);
+      console.error("Error parsing JWT Payload:", error)
     }
 
     } else {
 
-      this.userProfile = JSON.parse(sessionStorage.getItem("loggedInUser") || "");
+      this.userProfile = JSON.parse(sessionStorage.getItem("loggedInUser") || "")
       this.image = this.userProfile.picture
     }
     const jwtParts = this.jwtString.split('.');

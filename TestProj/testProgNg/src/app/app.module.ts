@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,9 +31,9 @@ import { DictionaryComponent } from './Component/dictionary/dictionary.component
 
 const appRoutes : Routes = [
   {path: "", component:HomeComponent, title:"Homepage"},
-  {path: "modes", component:HomepageComponent, title:"Game Modes"},
-  {path: "modes/math", component:MainGameComponent, title:"Math Game"},
-  {path: "modes/dict", component:DictionaryComponent, title:"Dictionary"}
+  {path: "modes", component:HomepageComponent, title:"Game Modes",canActivate: [AuthGuard]},
+  {path: "modes/math", component:MainGameComponent, title:"Math Game",canActivate: [AuthGuard]},
+  {path: "modes/dict", component:DictionaryComponent, title:"Dictionary", canActivate: [AuthGuard]}
 
 ]
 
@@ -64,7 +65,7 @@ const appRoutes : Routes = [
 
     // TourMatMenuModule.forRoot()
   ],
-  providers: [GameServiceService, ShepherdService, HomepageService],
+  providers: [GameServiceService, ShepherdService, HomepageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
